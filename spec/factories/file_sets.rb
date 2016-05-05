@@ -5,6 +5,9 @@ FactoryGirl.define do
     transient do
       user { FactoryGirl.create(:user) }
       content nil
+      filename 'example.txt'
+      mime_type 'text/plain'
+      original_file { mock_model("MockedFile") }
     end
 
     after(:create) do |file, evaluator|

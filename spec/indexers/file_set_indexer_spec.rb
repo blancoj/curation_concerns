@@ -19,19 +19,26 @@ describe CurationConcerns::FileSetIndexer do
       resource_type: ['Book'],
       identifier: ['urn:isbn:1234567890'],
       based_near: ['Medina, Saudi Arabia'],
-      related_url: ['http://example.org/TheWork/'],
-      mime_type: 'image/jpeg',
-      format_label: ['JPEG Image']) do |gf|
+      related_url: ['http://example.org/TheWork/']) do |gf|
         gf.full_text.content = 'abcxyz'
-        gf.height = ['500']
-        gf.width = ['600']
       end
+    # mime_type: 'image/jpeg',
+    # format_label: ['JPEG Image']) do |gf|
+    #  gf.full_text.content = 'abcxyz'
+    #  gf.height = ['500']
+    #  gf.width = ['600']
+    # end
   end
 
   let(:mock_file) do
     mock_model("MockFile",
                content: "asdf",
-               digest: ["urn:sha1:f794b23c0c6fe1083d0ca8b58261a078cd968967"]
+               digest: ["urn:sha1:f794b23c0c6fe1083d0ca8b58261a078cd968967"],
+               mime_type: 'image/jpeg',
+               format_label: ['JPEG Image'],
+               height: ['500'],
+               width: ['600'],
+               file_size: ['12']
               )
   end
   let(:indexer) { described_class.new(file_set) }
