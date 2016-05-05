@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in curation_concerns.gemspec
 gemspec
 
+gem 'hydra-works', github: 'projecthydra-labs/hydra-works', branch: 'characterization'
+
 group :development, :test do
   gem 'simplecov', '~> 0.9', require: false
   gem 'coveralls', require: false
